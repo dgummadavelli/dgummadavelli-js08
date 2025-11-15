@@ -119,10 +119,12 @@ function buildPizza() {
    myPizza.size = pizzaSizeBox.value;
    myPizza.crust = pizzaCrustBox.value;
    for (let i = 0; i < checkedToppings.length; i++) {
-      let myTopping = new Topping();
-      myTopping.name = checkedToppings[i].name;
-      myTopping.side = checkedToppings[i].value;
-      myPizza.addTopping(myTopping);
+      if (checkedToppings[i].value !== "none") {
+         let myTopping = new Topping();
+         myTopping.name = checkedToppings[i].name;
+         myTopping.side = checkedToppings[i].value;
+         myPizza.addTopping(myTopping);
+      }
    }
    return myPizza;
 }
